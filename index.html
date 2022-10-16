@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;700&display=swap" rel="stylesheet">
+
+  <script src="script.js" defer></script>
+
+  <title>Frontend Mentor | Article preview component</title>
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <style>
+    *, *::after, ::before {
+      box-sizing: border-box;
+    }
+    :root {
+      --dark-blue: hsl(217, 19%, 35%);
+      --desaturated-blue: hsl(214, 17%, 51%);
+      --grayish-blue: hsl(212, 23%, 69%);
+      --light-blue: hsl(210, 46%, 95%);
+    }
+    body {
+      font-family: 'Manrope', 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode';
+      margin: 0;
+      background-color: var(--light-blue);
+      width: 100%;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    main {
+      display: flex;
+      justify-content: center;
+      align-items:flex-start;
+      padding: 0;
+    }
+    .flat-img {
+      display: flex;
+      width: 22rem;
+      margin: 0;
+      border-radius: 0.6rem 0 0 0.6rem;
+      position: relative;
+      left: 2rem;
+    }
+    .info-container {
+      display: flex;
+      flex-direction: column;      
+      width: 28rem;
+      padding: 1rem 2.5rem 0 2.5rem;
+      background-color: white;
+      color: var(--dark-blue);
+      height: 100%;
+      border-radius: 0 0.6rem 0.6rem 0;
+      position: relative;
+      left: -2rem;
+    }
+    h1 {
+      font-size: 1.3rem;
+      font-weight: 700;
+      margin: 1rem 0 0 0;
+    }
+    .desription {
+      font-size: 0.8rem;
+      font-weight: 500;  
+      color: var(--desaturated-blue)    
+    }
+    .personal-info-container {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;     
+      padding: 0;
+      margin: 0;
+      height: 100%;       
+    }
+    .personal-image {
+      width: 2.5rem;
+      border-radius: 50%;
+      margin: 0 1rem 0 0;
+    }   
+    h2 {
+      font-size: 0.8rem;
+      font-weight: 700;
+      margin: 0;
+    }
+    h3 {
+      font-size: 0.8rem;
+      font-weight: 500;
+      margin: 0;
+      color: var(--grayish-blue)
+    }
+    .share-btn-container {
+      background-color: var(--light-blue);
+      border-radius: 50%; 
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 0 0 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+    .share-btn-grey {
+      padding: 0.6rem;
+      max-width: 100%;    
+    }
+    .share-btn-white {
+      padding: 0.6rem;
+      max-width: 100%;  
+      display: none;  
+    }
+    .share {
+      display: flex;
+      align-items: center;
+      padding: 1rem 2rem;
+      background-color: var(--dark-blue);
+      color: var(--grayish-blue);
+      position: absolute; top: -6rem; left: 50%; transform: translate(-50%);
+      text-transform: uppercase;
+      letter-spacing: 0.3rem;
+      font-size: 0.8rem;
+      font-weight: 500;
+      border-radius: 0.6rem;
+      transition-delay: 0.3s;    
+      z-index: -1;  
+    }
+    .box-pointer {
+      display: flex;
+      background-color: var(--dark-blue);
+      position: absolute; 
+      top: 80%;
+      left: 50%; transform: translate(-50%) rotate(45deg);
+      width: 20px;
+      height: 20px;
+    }
+    .icon {
+      margin: 0 0 0 1rem;
+    }
+
+    @media screen and (max-width: 750px) {
+      body {
+        align-items: center;
+      }
+      main {
+        flex-direction: column;
+        align-items: center;
+        width: 23rem;
+      }
+      .flat-img {
+        display: flex;
+        align-items: center;
+        width: 21rem;
+        border-radius: 0.6rem 0.6rem 0 0;
+        position: relative;
+        left: 0; 
+      }
+      .info-container {
+        width: 21rem;
+        padding: 1rem 2.2rem 0 2.5rem;
+        border-radius: 0 0 0.6rem 0.6rem;
+        position: relative;  
+        left: 0;
+        top: -3rem;
+      }
+      h1 {
+        font-size: 1rem;
+      }
+      .personal-info-container {
+        margin: 1rem 0 1.3rem 0;
+      }      
+      .share {
+        width: 21rem;
+        padding: 1.4rem 2rem 1.7rem 2rem;
+        position: absolute; top: -0.8rem; left: -6.15rem;
+        border-radius: 0 0 0.6rem 0.6rem;
+      }
+      .box-pointer {
+        display: none;
+      }
+    }
+
+    .attribution { font-size: 11px; text-align: center; margin-top: 2rem;}
+      @media screen and (max-width: 750px) {
+        .attribution { margin-top: 0;}
+      }
+    .attribution a { color: hsl(228, 45%, 44%); }
+  </style>
+</head>
+<body>
+  <main>
+    <div class="image-container">
+      <img class="flat-img" src="./images/drawers.jpg" alt="" />
+    </div>
+    <div class="info-container">
+      <h1>Shift the overall look and feel by adding these wonderful 
+      touches to furniture in your home</h1>
+
+      <p class="desription">Ever been in a room and felt like something was missing? Perhaps 
+      it felt slightly bare and uninviting. I’ve got some simple tips 
+      to help you make any room feel complete.</p>
+
+      <div class="personal-info-container">
+
+        <img class="personal-image" src="./images/avatar-michelle.jpg" alt="" >
+        <div class="name-date">
+          <h2>Michelle Appleton</h2>
+          <h3>28 Jun 2020</h3>
+        </div>
+        <div class="share-btn-container">
+          <img class="share-btn-grey" src="./images/icon-share-grey.svg" alt="" />          
+          <img class="share-btn-white" src="./images/icon-share-white.svg" alt="" />          
+          <div class="share">
+            <div class="box-pointer"></div>
+            <span>Share</span>
+            <img class="icon" src="./images/icon-facebook.svg" alt="" />
+            <img class="icon" src="./images/icon-twitter.svg" alt="" />
+            <img class="icon" src="./images/icon-pinterest.svg" alt="" />          
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </main>
+  <footer>
+    <div class="attribution">
+      Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+      Coded by <a href="https://www.frontendmentor.io/profile/WhiteFatal" target="_blank">Night</a>.
+    </div>
+  </footer>
+</body>
+</html>
